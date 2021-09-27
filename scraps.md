@@ -1,0 +1,77 @@
+# Technical Design and Discovery
+
+## Goal
+
+The goal of this project is to demonstrate my experience in react for my portfolio. In order do this, I am building a memory game based off of this [Front-End Mentor
+challenge](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM/hub/memory-game-v65cSOs-6). The memory game can be played by one or multiple players (up to four). The user should see a start screen on load, where they can set the theme, number of players, and grid size.
+
+In multiplayer mode, once the game is started, each player will take turns making a move. A move is one attempt at matching two items on the grid. If a player successfully matches two grid tiles then a point is added to their score. Once all the tiles have been matched, an end game Modal should appear with the results of the match. The player with the highest score is the winner. If more than one player tie for the highest score then the game is tied.
+
+For Solo players the game is timed as opposed to score. The objective of the solo player is to find all the matches in the shortest time possible with the least amount of moves. Once a player has found all the matches, an end game modal should appear displaying the result. The player should see the amount of moves and time it took to find all the matches.
+
+## Solution
+
+### Overview
+For the UI, I'm selecting React. Since React is my strongest skill, I'm going to use it as the building blocks for this game. Rather than opting for the vanilla Javascript version I will  use Typescript.
+
+For state management, I plan to use mobx-react-lite. To minimize re-renders I'm implementing mobx's observer pattern so as not rely on React Context API.
+
+For styling, I'm going to use CSS modules for the benefit of component-scoped styles and to maintain several smaller stylesheets. I usually like to use atomic classes in react like tailwind or tachyons, but I opted not to because of the component interactions potentially creating really verbose className strings.
+
+For a faster build out I'm going to leverage Storybook.js for isolated component development.
+
+### Technologies
+
+| Technology | URL |
+| ---------- | --- |
+| React |
+| Typescript |
+| CSS Modules |
+| mobx-react-lite |
+| Storybook |
+
+### Components
+
+- Buttons
+  There are two kinds of buttons. The orange and the dark blue one. Both buttons have different color schemes; each color representing a state for the button.
+
+  A.C. :
+  - should build using an HTML Button
+  - should allow for an onClick prop to be passed
+  - should add accessibility props
+  - should allow it to fill the width of it's parent
+  - should see the
+  - Build reactive states:
+    - Hover
+    - Disabled
+
+- GridTile
+  The GridTile will be the component that the user interacts with in the grid. It should display a specific value, and become interactive when the user clicks on it.
+
+  A.C. :
+  - should accept an onClick handler
+  - should accept a value to display
+  - should accept a prop to manage it's selected state
+  - should accept a prop to manage it's inactive state
+  - should use a native html button component for better accessibility
+  - should be accessible, adding props where necessary to fulfill that criteria.
+
+
+- PlayerCard
+  The PlayerCard will contain information relevant to players. It should accept a label and a value. The card should also allow for an active state to indicate when it's a players turn during the multiplayer experience.
+
+  A.C. :
+  - should accept a label and a value
+  - should be accessible, adding props where necessary to fulfill that criteria.
+  - should have a prop to toggle it's active state.
+
+### Workflow
+
+#### Game Start Workflow
+1. Page is requested, start screen is rendered to the user
+2. User clicks to start the game. Capture game settings.
+3. Render game page based on settings.
+
+#### Multiplayer Game Workflow
+
+1. Start off making player one the active player
