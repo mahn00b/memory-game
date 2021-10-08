@@ -12,9 +12,9 @@ For Solo players the game is timed as opposed to score. The objective of the sol
 ## Solution
 
 ### Overview
-For the UI, I'm selecting React. Since React is my strongest skill, I'm going to use it as the building blocks for this game. Rather than opting for the vanilla Javascript version I will  use Typescript.
+For the UI, I'm selecting React. Since React is my strongest skill, I'm going to use it as the building blocks for this game. Rather than opting for the vanilla Javascript version I will use Typescript.
 
-For state management, I plan to use mobx-react-lite. To minimize re-renders I'm implementing mobx's observer pattern so as not rely on React Context API.
+For state management, I plan to use mobx-react-lite. To minimize re-renders I'm implementing mobx's observer pattern so as not rely on React's Context API.
 
 For styling, I'm going to use CSS modules for the benefit of component-scoped styles and to maintain several smaller stylesheets. I usually like to use atomic classes in react like tailwind or tachyons, but I opted not to because of the component interactions potentially creating really verbose className strings.
 
@@ -22,7 +22,7 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 
 ### Technologies
 
-| Technology | usaage |
+| Technology | usage |
 | ---------- | --- |
 | React |
 | Typescript |
@@ -32,7 +32,7 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 
 ### Components
 
-- Buttons
+- Button
   There are two kinds of buttons. The orange and the dark blue one. Both buttons have different color schemes; each color representing a state for the button.
 
   A.C. :
@@ -114,7 +114,7 @@ const randomIndex = randomNumber() % x // Where x is the size of the array
       a. Record a point for that player
       b. Make selected GridTiles inactive.
     if the player doesn't find a match:
-      c. Hide values
+      a. Hide values
 3. When the user clicks all the tiles, the game ends and the timer should stop.
 4. Make the summary modal appear with the results of the match.
     if the user chooses to restart the match.
@@ -131,6 +131,19 @@ const randomIndex = randomNumber() % x // Where x is the size of the array
   - Add support for jest unit testing.
   - create run scripts
   - Add support for storybook
+  - Add support for axe-core to assess accessibility issues
 
 ### Phase 2 - Component Development
-  Create all components highlighted in the requirements
+  Create all components highlighted in the requirements:
+  - Button
+  - GridTile
+  - PlayerCard
+  - Modal
+
+### Phase 3 - Create Game Board
+
+### Phase 4 - Create Start Screen
+
+### Phase 5 - Create SinglePlayer experience
+
+### Phase 6 - Create MultiPlayer experience
