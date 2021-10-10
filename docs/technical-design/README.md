@@ -40,10 +40,8 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
   - should allow for an onClick prop to be passed
   - should add accessibility props
   - should allow it to fill the width of it's parent
-  - should see the
   - Build reactive states:
     - Hover
-    - Disabled
 
 - GridTile
   The GridTile will be the component that the user interacts with in the grid. It should display a specific value, and become interactive when the user clicks on it.

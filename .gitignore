@@ -17,3 +17,6 @@
 
 # node moudles
 node_modules/
+
+# ignore lockfile
+yarn.lock
