@@ -1,4 +1,4 @@
-/** Because every project needs a button. */
+import styles from './Button.module.scss';
 
 export interface ButtonProps {
   /** Contents that appear in the button */
@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <button {...rest} >
+    <button className={styles.Button} {...rest} >
       {children}
     </button>
   )
