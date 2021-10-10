@@ -1,13 +1,49 @@
 {
-  "name": "memory-game",
-  "version": "1.0.0",
-  "description": "A game to demonstrate my Front-End skills.",
-  "main": "index.js",
-  "author": "Mahmoud Yousif",
-  "license": "MIT",
-  "private": false,
+  "name": "boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.36.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.3.10",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.2.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "5.2.6",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx": "^0.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^4.12.4",
+    "jest": "^27.2.5",
+    "prettier": "^2.4.1",
+    "react-docgen-typescript": "^2.1.1",
+    "sass-loader": "10",
+    "style-loader": "2.0.0",
+    "typescript": "^4.4.3"
   }
 }

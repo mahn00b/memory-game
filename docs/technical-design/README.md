@@ -1,4 +1,4 @@
-# Technical Design and Discovery
+# Technical Design
 
 ## Goal
 
