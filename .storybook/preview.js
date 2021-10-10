@@ -7,8 +7,7 @@ export const parameters = {
     },
   },
   typescript: {
-    check: false,
-    checkOptions: {},
+    check: true,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
