@@ -1,0 +1,30 @@
+@import '../../colors.scss';
+
+.GridTile {
+  width: 100%;
+  height: 100%;
+
+  border-color: transparent;
+  border-radius: 50%;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  align-items: center;
+  text-align: center;
+
+  &.hidden {
+    background: $primary-blue;
+    color: transparent;
+  }
+
+  &.inactive {
+    background: $primary-teal;
+    color: $primary-white;
+  }
+
+  &.active {
+    background: $primary-orange;
+    color: $primary-white;
+  }
+}
