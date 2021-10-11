@@ -36,12 +36,10 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
   There are two kinds of buttons. The orange and the dark blue one. Both buttons have different color schemes; each color representing a state for the button.
 
   A.C. :
-  - should build using an HTML Button
-  - should allow for an onClick prop to be passed
-  - should add accessibility props
-  - should allow it to fill the width of it's parent
+  - Should build using an HTML Button
   - Build reactive states:
     - Hover
+    - Active
 
 - GridTile
   The GridTile will be the component that the user interacts with in the grid. It should display a specific value, and become interactive when the user clicks on it.
