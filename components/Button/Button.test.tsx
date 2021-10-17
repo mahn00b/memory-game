@@ -11,5 +11,17 @@ describe('Button', () => {
         const { getByText } = render(<Button>TEST</Button>);
 
         expect(getByText('TEST')).toBeInTheDocument();
-    })
+    });
+
+    it('should render the correct theme based on the respective prop', () => {
+        const { getByText, rerender } =  render(<Button theme="menu" >TEST</Button>);
+
+        expect(getByText('TEST')).toHaveClass('menu')
+
+        rerender(<Button theme="primary" >TEST</Button>)
+        expect(getByText('TEST')).toHaveClass('primary')
+
+        rerender(<Button theme="secondary" >TEST</Button>)
+        expect(getByText('TEST')).toHaveClass('secondary')
+    });
 })

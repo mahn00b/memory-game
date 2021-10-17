@@ -9,7 +9,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** Toggles the active state */
   active?: boolean
   /** Adjusts the size of the button */
-  size: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large'
 }
 
 const Button: React.FC<ButtonProps> = ({
