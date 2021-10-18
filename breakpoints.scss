@@ -1,0 +1,15 @@
+/** Breakpoints are based off of the design specs. */
+$tablet-width: 375px;
+$desktop-width: 1440px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

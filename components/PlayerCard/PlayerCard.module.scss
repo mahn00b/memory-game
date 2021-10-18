@@ -1,0 +1,72 @@
+@import '../../colors.scss';
+@import '../../breakpoints.scss';
+
+.PlayerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  font-weight: bold;
+
+  padding: 5px 10px;
+
+  background: $gray;
+
+  border-radius: 5px;
+
+  .label {
+    color: $pale-blue;
+    font-size: 15px;
+    display: inline-block;
+  }
+
+  .info {
+    color: $primary-blue;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .triangle {
+    width: 0;
+    height: 0;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $primary-orange;
+
+    position: absolute;
+    top: -.5rem;
+    left: calc(50% - 10px);
+    flex: 0;
+
+    @include tablet {
+      left: calc(50% - 20px);
+    }
+
+    @include desktop {
+      left: calc(50% - 20px);
+    }
+  }
+
+  &.active {
+    background: $primary-orange;
+
+    & > * {
+      color: $primary-white;
+    }
+  }
+
+  @include tablet {
+    align-items: flex-start;
+
+    padding-left: 1rem;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+}
