@@ -35,6 +35,7 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 | SASS            | CSS pre-processing             |
 | mobx-react-lite | state management               |
 | Storybook       | Isolated component development |
+| Figma           | Design specs and assets        |
 
 ### Components
 
