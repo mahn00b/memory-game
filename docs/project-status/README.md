@@ -1,4 +1,4 @@
-# Project Status
+git # Project Status
 
 ### Phase 1 - Scaffolding
   Setup project scaffolding with the following requirements:
@@ -11,7 +11,7 @@
 ### Phase 2 - Component Development
   - [x] Button
   - [x] GridTile
-  - [ ] PlayerCard
+  - [x] PlayerCard
   - [ ] Modal
 
 ### Phase 3 - Game Logic
