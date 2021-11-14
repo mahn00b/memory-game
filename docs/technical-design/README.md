@@ -1,13 +1,18 @@
 # Technical Design
 
-## Goal
+## Table of contents
 
-The goal of this project is to demonstrate my experience in react for my portfolio. In order do this, I am building a memory game based off of this [Front-End Mentor
-challenge](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM/hub/memory-game-v65cSOs-6). The memory game can be played by one or multiple players (up to four). The user should see a start screen on load, where they can set the theme, number of players, and grid size.
-
-In multiplayer mode, once the game is started, each player will take turns making a move. A move is one attempt at matching two items on the grid. If a player successfully matches two grid tiles then a point is added to their score. Once all the tiles have been matched, an end game Modal should appear with the results of the match. The player with the highest score is the winner. If more than one player tie for the highest score then the game is tied.
-
-For Solo players the game is timed as opposed to score. The objective of the solo player is to find all the matches in the shortest time possible with the least amount of moves. Once a player has found all the matches, an end game modal should appear displaying the result. The player should see the amount of moves and time it took to find all the matches.
+- [Solution](#solution)
+  - [Overview](#overview)
+  - [Technologies](#what-i-learned)
+  - [Components](#components)                                                                 ](#continued-development)
+  - [Workflows](#useful-resources)
+    - [Game Start](#game-start)
+    - [Board Initialization](#board-initialization)
+    - [Multiplayer Game](#multiplayer-game)
+    - [SinglePlayer Game](#signleplayer-game)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Solution
 
@@ -22,13 +27,14 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 
 ### Technologies
 
-| Technology | usage |
-| ---------- | --- |
-| React |
-| Typescript |
-| CSS Modules |
-| mobx-react-lite |
-| Storybook | Isolated component development
+| Technology      | usage                          |
+| --------------- | ------------------------------ |
+| React           | UI development                 |
+| Typescript      | static typing                  |
+| CSS Modules     | Scoped styles                  |
+| SASS            | CSS pre-processing             |
+| mobx-react-lite | state management               |
+| Storybook       | Isolated component development |
 
 ### Components
 
@@ -77,6 +83,7 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 ```js
 const randomIndex = randomNumber() % x // Where x is the size of the array
 ```
+
     If the index is defined in the array
       a. Generate a new random number
       b. repeat step 2
@@ -116,30 +123,4 @@ const randomIndex = randomNumber() % x // Where x is the size of the array
     if the user chooses to restart the match.
       a. Restart game from Board Initialization
     if the user chooses to set up a new game
-      a. Restart game from Game Start
-
-## Dev Plan
-
-### Phase 1 - Scaffolding
-  Setup project scaffolding with the following requirements:
-  - A frontend react boilerplate (Next.js)
-  - Add eslint config
-  - Add support for jest unit testing.
-  - create run scripts
-  - Add support for storybook
-  - Add support for axe-core to assess accessibility issues
-
-### Phase 2 - Component Development
-  Create all components highlighted in the requirements:
-  - Button
-  - GridTile
-  - PlayerCard
-  - Modal
-
-### Phase 3 - Create Game Board
-
-### Phase 4 - Create Start Screen
-
-### Phase 5 - Create SinglePlayer experience
-
-### Phase 6 - Create MultiPlayer experience
+      a. Restart game from the start screen
