@@ -12,8 +12,10 @@
 # node moudles
 node_modules/
 
-# ignore lockfile
+# ignore yarn/npm generated files
+package-lock.json
 yarn.lock
+yarn-error.log
 
 # Ignore test coverage reports
 coverage/

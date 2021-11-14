@@ -50,12 +50,12 @@ describe('GridTile', () => {
   })
 
   test.each`
-    tile  | state
-    ${{...props, state: undefined} as GridTileProps} | ${'hidden'}
-    ${{...props, state: 'active'} as GridTileProps} | ${'active'}
-    ${{...props, state: 'inactive'} as GridTileProps} | ${'inactive'}
-    ${{...props, state: 'hidden'} as GridTileProps} | ${'hidden'}
-  `('should have $state in the className state=$state', ({ tile, state }) => {
+    tile  | className | state
+    ${{...props, state: undefined} as GridTileProps} | ${'hidden'} | ${'Default'}
+    ${{...props, state: 'active'} as GridTileProps} | ${'active'} | ${'Active'}
+    ${{...props, state: 'inactive'} as GridTileProps} | ${'inactive'} | ${'Inactive'}
+    ${{...props, state: 'hidden'} as GridTileProps} | ${'hidden'} | ${'Hidden'}
+  `('should have $className in the className string when tile is an $state state', ({ tile, className }) => {
     const { getByTestId } = render(
       <GridTile
         {...tile}
@@ -63,7 +63,7 @@ describe('GridTile', () => {
         {TEST_TEXT}
       </GridTile>);
 
-      expect(getByTestId(tile.testId)).toHaveClass(state);
+      expect(getByTestId(tile.testId)).toHaveClass(className);
   });
 
   it('should call onClick callback function when gridTile is clicked', () => {
