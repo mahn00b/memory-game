@@ -24,5 +24,9 @@
     background-color: $off-white;
 
     padding: 55px;
+
+    @include mobile {
+      padding: 35px 25px;
+    }
   }
 }
