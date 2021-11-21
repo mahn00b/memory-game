@@ -1,0 +1,28 @@
+@import '../../colors.scss';
+@import '../../breakpoints.scss';
+
+.Modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+
+  &.isOpen {
+    display: flex;
+  }
+
+  .content {
+    border-radius: 20px;
+    background-color: $off-white;
+
+    padding: 55px;
+  }
+}
