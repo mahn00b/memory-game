@@ -12,7 +12,8 @@ git # Project Status
   - [x] Button
   - [x] GridTile
   - [x] PlayerCard
-  - [ ] Modal
+  - [x] Modal
+  - [ ] Capture typography in component
 
 ### Phase 3 - Game Logic
   - [ ] Add support for mobx-react-lite
