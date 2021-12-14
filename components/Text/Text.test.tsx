@@ -1,5 +1,5 @@
-import { getByText, render } from '@testing-library/react'
-import Text, {TextProps} from './Text';
+import { render } from '@testing-library/react'
+import Text from './Text';
 
 describe('Typography', () => {
   it('should be defined.', () => {
