@@ -1,0 +1,49 @@
+@import '../../breakpoints.scss';
+
+.GameBoard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: calc(100vw - 48px);
+
+  @include largeScreens {
+    &.four {
+      max-width: 532px;
+      height: 532px;
+    }
+
+    &.six {
+      max-width: 572px;
+      height: 572px;
+    }
+  }
+
+  .tile {
+    &.four {
+      margin: 6px;
+      width: calc(25% - 12px);
+      height: calc(25% - 12px);
+    }
+
+    &.six {
+      margin: 4.5px;
+      width: calc(16.6% - 9px);
+      height: calc(16.6% - 9px);
+    }
+
+    @include largeScreens {
+      &.four {
+        margin: 10px;
+        width: calc(25% - 20px);
+        height: calc(25% - 20px);
+      }
+
+      &.six {
+        margin: 8px;
+        width: calc(16.6% - 16px);
+        height: calc(16.6% - 16px);
+      }
+    }
+  }
+}

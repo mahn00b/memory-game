@@ -11,33 +11,44 @@ export interface GridTileProps {
   */
   disabled?: boolean
   /** Accepts a callback function which fires on click */
-  onClick: () => void;
+  onClick: (value: GridTileProps['value']) => void;
   /** The tile's state
    * @default 'hidden'
   */
   state?: 'hidden' | 'active' | 'inactive';
   /** A string passed into the data-testid property of the parent element. */
   testId?: string
+  /** The value of this tile to be returned onClick */
+  value: any;
 }
 
-const GridTile: React.FC<GridTileProps> = ({
+const GridTile = ({
   ariaLabel,
   children,
   disabled,
   onClick,
   state = 'hidden',
   testId,
-}: GridTileProps) => (
-  <button
-    aria-label={ariaLabel}
-    className={cx(styles.GridTile, styles[state])}
-    disabled={disabled}
-    onClick={onClick}
-    data-testid={testId}
-    >
-    {children}
-  </button>
-)
+  value,
+}: GridTileProps) => {
+
+  const handleClick = () => {
+    onClick(value)
+  }
+
+  return (
+    <button
+      aria-label={ariaLabel}
+      className={cx(styles.GridTile, styles[state])}
+      disabled={disabled}
+      onClick={handleClick}
+      data-testid={testId}
+      >
+      {children}
+    </button>
+  )
+
+}
 
 GridTile.displayName = 'GridTile';
 
