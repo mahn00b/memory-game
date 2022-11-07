@@ -1,19 +1,22 @@
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import cx from 'classnames';
 import GridTile from '../../components/GridTile';
-import styles from './GameBoard.styles.scss';
+import styles from './GameBoard.module.scss';
 
 export interface GameBoardProps {
   config: GameConfig;
-  onSelectMatch?: (value: number) => void;
-  onAllMatched?: (reset: () => void)=> void;
-  matchDelay?: number;
+  /** A callback function that is called when the user clicks a single tile. */
+  onClickTile?: (value?: number, isMatch?: boolean) => void;
+  /** A callback function that is called when all tiles have been matched. */
+  onAllMatched?: (reset?: () => void)=> void;
+  /** A string used to target the element during testing. */
+  dataTestid?: string;
 }
 
 interface TileState {
   selected: boolean;
   value: number;
-  symbol: React.ReactNode;
+  symbol: ReactNode;
   active: boolean;
 }
 
@@ -22,7 +25,7 @@ function generateRandomOrder(size: number): number[] {
   const array = []
 
   /* Generating an array of random pairs of numbers to be the grid values.  */
-  for (let i = 1; i <= size; i++) array[i - 1] = i > size ?  i - size : i;
+  for (let i = 1; i <= (size * 2); i++) array.push(...[i, i]);
 
 
   let tmp, current, top = array.length;
@@ -45,16 +48,17 @@ const determineTileState = (active: boolean, selected: boolean): 'active' | 'hid
   return 'hidden'
 }
 
-const GameBoard =  memo(({
+const GameBoard =  ({
   config: {
     gridSize
   },
-  onSelectMatch = () => {},
-  onAllMatched = () => {}
+  onClickTile = () => {},
+  onAllMatched = () => {},
+  dataTestid
 }: GameBoardProps) => {
   const [size] = useState(gridSize === 6 ? 'six' : 'four');
   const [firstSelection, setFirstSelection] = useState<number | null>(null);
-  const [_, setSecondSelection] = useState<number | null>(null);
+  const [secondSelection, setSeconSelction] = useState<number | null>(null);
   const [numMatches, setNumMatches] = useState<number>(0)
   const [tiles, setTiles] = useState<TileState[]>([]);
 
@@ -64,7 +68,7 @@ const GameBoard =  memo(({
 
   const resetBoard = () => {
     setTiles(
-      generateRandomOrder(gridSize ** 2)
+      generateRandomOrder(gridSize)
       .map((value) => ({
         active: false,
         selected: false,
@@ -74,14 +78,7 @@ const GameBoard =  memo(({
     );
   }
 
-  const resetSelection = (first: number, second: number) => {
-    const isMatch = tiles[first].value === tiles[second].value;
-
-    if (isMatch) {
-      onSelectMatch(tiles[first].value)
-      setNumMatches(numMatches + 1)
-    }
-
+  const resetSelection = (first: number, second: number, isMatch: boolean) => {
     tiles[first] = {
       ...tiles[first],
       selected: isMatch,
@@ -95,31 +92,38 @@ const GameBoard =  memo(({
     }
 
     setFirstSelection(null);
-    setSecondSelection(null)
+    setSeconSelction(null);
     setTiles(tiles);
-
-    if (numMatches === (gridSize * 2)) onAllMatched(resetBoard)
+    if (numMatches === (gridSize * 2) - 1) onAllMatched(resetBoard)
   }
 
   const handleSelection = (index: number) => {
-    if (index === firstSelection) return
+    if (index === firstSelection || secondSelection) return
 
     tiles[index].selected = true
     tiles[index].active = true
 
     if (firstSelection !== null) {
-        setSecondSelection(index)
+        setSeconSelction(index)
+        const isMatch = tiles[firstSelection].value === tiles[index].value;
+        if (isMatch) {
+           setNumMatches(numMatches + 1)
+        }
+
+        onClickTile(tiles[index].value, isMatch)
 
         setTimeout(() => {
-          resetSelection(firstSelection, index)
+          resetSelection(firstSelection, index, isMatch)
         }, 500)
     } else {
+      onClickTile(tiles[index].value, false)
+
       setFirstSelection(index)
     }
   }
 
   return (
-    <div className={cx(styles.GameBoard, styles[size])}>
+    <div className={cx(styles.GameBoard, styles[size])} data-testid={dataTestid} >
       {tiles.map(({
         active,
         selected,
@@ -132,12 +136,13 @@ const GameBoard =  memo(({
             disabled={!active && selected}
             value={index}
             ariaLabel={`This tile contains ${symbol}`}
+            key={JSON.stringify({ symbol, index })}
           >
             {symbol}
           </GridTile>
       </div>))}
     </div>
   )
-});
+};
 
 export default GameBoard;

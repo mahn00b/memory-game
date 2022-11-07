@@ -7,7 +7,7 @@ describe('Modal', () => {
   })
 
   it('should be closed when isOpen is set to false.', () => {
-    const { queryByTestId, queryByText } = render(
+    const { queryByTestId } = render(
       <Modal isOpen={false} dataTestid="TEST_ID">
         <div>test</div>
       </Modal>

@@ -43,6 +43,7 @@ const GridTile = ({
       disabled={disabled}
       onClick={handleClick}
       data-testid={testId}
+      role='button'
       >
       {children}
     </button>

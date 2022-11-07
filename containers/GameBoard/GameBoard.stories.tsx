@@ -20,12 +20,23 @@ export default {
         type: 'radio',
         options: [4, 6]
       }
+    },
+    onAllMatched: {
+      action: 'allMatched'
+    },
+    onClickTile: {
+      action: 'tile clicked'
     }
   }
 };
 
 const Template = (args: any) => {
-  return <GameBoard config={{ gridSize: args.gridSize, numberOfPlayers: 1 }}  />
+  function allMatched(resetBoard: Function) {
+    resetBoard();
+  }
+
+
+  return <GameBoard config={{ gridSize: args.gridSize, numberOfPlayers: 1 }} {...args} onAllMatched={allMatched} />
 };
 
 export const Default = Template.bind({});
