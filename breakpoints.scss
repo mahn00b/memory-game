@@ -1,9 +1,16 @@
 /** Breakpoints are based off of the design specs. */
-$tablet-width: 375px;
+$tablet-width: 768px;
 $desktop-width: 1440px;
 
 @mixin mobile {
   @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+/** To target screens larger than mobile. **/
+@mixin largeScreens {
+  @media (min-width: #{$tablet-width}) {
     @content;
   }
 }

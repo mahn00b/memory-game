@@ -9,7 +9,7 @@
 
   font-weight: bold;
 
-  padding: 0.3125rem 0.625rem;
+  padding: 0.625rem 2.93rem;
 
   background: $gray;
 
@@ -60,13 +60,12 @@
 
   @include tablet {
     align-items: flex-start;
-
-    padding-left: 1rem;
   }
 
   @include desktop {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    padding: 1.3125rem 1.5625rem;
   }
 }

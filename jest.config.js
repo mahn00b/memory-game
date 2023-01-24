@@ -1,7 +1,7 @@
 module.exports = {
   clearMocks: true,
   coverageDirectory: "coverage",
-  roots: ["<rootDir>/components"],
+  roots: ["<rootDir>/components", "<rootDir>/containers"],
   testEnvironment: 'jsdom',
   testMatch: [
     '**/?(*.)+(test).[jt]s?(x)',
