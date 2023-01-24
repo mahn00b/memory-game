@@ -23,9 +23,10 @@ interface TileState {
 /** Generates a random order of numbers based on the size of the grid. */
 function generateRandomOrder(size: number): number[] {
   const array = []
+  const numTiles = (size ** 2)/2
 
   /* Generating an array of random pairs of numbers to be the grid values.  */
-  for (let i = 1; i <= (size * 2); i++) array.push(...[i, i]);
+  for (let i = 1; i <= numTiles; i++) array.push(i, i);
 
 
   let tmp, current, top = array.length;

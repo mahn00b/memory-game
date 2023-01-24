@@ -13,10 +13,15 @@ describe('Gameboard', () => {
       onAllMatched: jest.fn(),
       dataTestid: 'GAME_BOARD'
     }
+
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
     jest.clearAllMocks()
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
   })
 
   it('should be defined', () => {
@@ -103,11 +108,11 @@ describe('Gameboard', () => {
       console.log(i, tiles.length, tiles[0].innerHTML, tiles[1].innerHTML);
 
       fireEvent.click(tiles[0]);
-
+      jest.runAllTimers()
       rerender(<GameBoard {...props} onAllMatched={mock} />);
 
       fireEvent.click(tiles[1]);
-
+      jest.runAllTimers()
       rerender(<GameBoard {...props} onAllMatched={mock} />);
     }
 
