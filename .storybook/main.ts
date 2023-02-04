@@ -1,4 +1,4 @@
-const path = require('path');
+import type { StorybookConfig } from '@storybook/core-common';
 
 module.exports = {
   "stories": [
@@ -29,4 +29,7 @@ module.exports = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
-}
+  core: {
+    disableTelemetry: true // 👈 Disables telemetry
+  }
+} as StorybookConfig;

@@ -1,10 +1,14 @@
 import Button, { ButtonProps } from './Button';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: Button,
   title: 'Button',
   argTypes: {
-    children: { table: { disable: true }}
+    children: { table: { disable: true }},
+    size: {
+
+    }
   },
   args: {
     active: false,
@@ -12,7 +16,7 @@ export default {
   }
 }
 
-const Template = (args: ButtonProps): any => <Button {...args} >Start Game</Button>
+const Template = (args: ButtonProps): any => <Button {...args} >1</Button>
 
 export const Menu = Template.bind({});
 
