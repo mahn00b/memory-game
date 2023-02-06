@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from './Button';
+import Button from './Button';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
@@ -7,16 +7,22 @@ export default {
   argTypes: {
     children: { table: { disable: true }},
     size: {
-
+      options: ['small', 'medium', 'large']
+    },
+    theme: {
+      options: ['menu', 'primary', 'secondary']
+    },
+    active: {
+      control: 'boolean'
     }
   },
   args: {
     active: false,
     size: 'small'
   }
-}
+} as ComponentMeta<typeof Button>;
 
-const Template = (args: ButtonProps): any => <Button {...args} >1</Button>
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} >1</Button>
 
 export const Menu = Template.bind({});
 
@@ -44,9 +50,9 @@ Medium.args = {
   active: true
 }
 
-export const Big = Template.bind({});
+export const Large = Template.bind({});
 
-Big.args = {
+Large.args = {
   theme: 'primary',
-  size: 'big'
+  size: 'large'
 }
