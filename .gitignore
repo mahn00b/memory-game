@@ -19,3 +19,9 @@ yarn-error.log
 
 # Ignore test coverage reports
 coverage/
+
+# personal changelog notes.
+changelog.txt
+
+# Evnironment variables
+**/.env*
