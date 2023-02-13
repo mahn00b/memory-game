@@ -13,19 +13,19 @@ git # Project Status
   - [x] GridTile
   - [x] PlayerCard
   - [x] Modal
-  - [ ] Capture typography in component
+  - [x] Capture typography in component
 
 ### Phase 3 - Game Logic
-  - [ ] Add support for mobx-react-lite
-  - [ ] Create game static types
-  - [ ] Create GameEngine component
+  - [ ] Add support for mobx-react-lite ? (maybe not)
+  - [x] Create game static types
+  - [ ] Create GameEngine component ? (maybe not)
 
 ### Phase 4 - Build Game UI
-  - [ ] Create Start Screen
-  - [ ] Create Game Board
+  - [ ] Create Settings Screen
+  - [x] Create Game Board
 
 ### Phase 5 - Build Initial State
-  - [ ] Display the start screen
+  - [ ] Display the Settings screen
   - [ ] Capture the selected game settings
   - [ ] On game start, pass the selected game settings into the GameEngine
 
