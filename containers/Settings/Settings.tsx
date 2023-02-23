@@ -6,6 +6,10 @@ import {
 } from '../../components';
 import styles from './Settings.module.scss';
 
+const THEME_SETTINGS = ['numbers', 'icons'];
+const PLAYER_SETTINGS = [1, 2, 3, 4];
+const GRID_SIZE_SETTINGS = [4, 6];
+
 export interface SettingsProps {
   /** Boolean flag to show/hide the settings.  */
   open: boolean
@@ -22,13 +26,13 @@ function Settings({
   const [gridSize, setGridSize] = useState< 4 | 6 >(4);
 
   const onSelectTheme: MouseEventHandler<HTMLButtonElement> =
-    (e) => setTheme(e.currentTarget.innerText.toLowerCase())
+    (e) => setTheme(e.currentTarget.innerHTML.toLowerCase())
 
   const onSelectNumPlayers: MouseEventHandler<HTMLButtonElement> =
-    (e) => setNumPlayers(parseInt(e.currentTarget.innerText))
+    (e) => setNumPlayers(parseInt(e.currentTarget.innerHTML))
 
   const onSelectGridSize: MouseEventHandler<HTMLButtonElement> =
-    (e) => setGridSize(e.currentTarget.innerText.includes('4') ? 4 : 6)
+    (e) => setGridSize(e.currentTarget.innerHTML.includes('4') ? 4 : 6)
 
   const handleSubmitSettings = () => {
     onSelectSettings({
@@ -47,24 +51,19 @@ function Settings({
       <div className={styles.row}>
         <Text level="p">Select Theme</Text>
         <div className={styles.options}>
-          <Button size="medium" onClick={onSelectTheme}>Numbers</Button>
-          <Button size="medium" onClick={onSelectTheme}>Icons</Button>
+          {THEME_SETTINGS.map((t) => (<Button key={t} active={theme === t} size="medium" onClick={onSelectTheme} >{t}</Button>))}
         </div>
       </div>
       <div className={styles.row}>
         <Text level="p">Number of Players</Text>
         <div className={styles.options}>
-          <Button size="medium" onClick={onSelectNumPlayers}>1</Button>
-          <Button size="medium" onClick={onSelectNumPlayers}>2</Button>
-          <Button size="medium" onClick={onSelectNumPlayers}>3</Button>
-          <Button size="medium" onClick={onSelectNumPlayers}>4</Button>
+        {PLAYER_SETTINGS.map((p) => (<Button key={p} active={numPlayers === p} size="medium" onClick={onSelectNumPlayers}>{p}</Button>))}
         </div>
       </div>
       <div className={styles.row}>
         <Text level="p">Grid Size</Text>
         <div className={styles.options}>
-          <Button size="medium" onClick={onSelectGridSize}>4x4</Button>
-          <Button size="medium" onClick={onSelectGridSize}>6x6</Button>
+        {GRID_SIZE_SETTINGS.map((s) => (<Button key={`${s}x${s}`} className={styles.padding} active={gridSize === s} size="medium" onClick={onSelectGridSize}>{`${s}x${s}`}</Button>))}
         </div>
       </div>
       <div className={styles.submit}>
@@ -73,11 +72,13 @@ function Settings({
           theme="primary"
           size="medium"
         >
-          Start Game
+          start game
         </Button>
       </div>
     </div>
   )
 }
+
+Settings.displayName = 'Settings';
 
 export default Settings;

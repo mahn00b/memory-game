@@ -1,4 +1,6 @@
-import Settings, { SettingsProps } from './Settings';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import Settings from './Settings';
+import styles from './Settings.module.scss';
 
 export default {
   component: Settings,
@@ -13,8 +15,8 @@ export default {
       }
     }
   }
-}
+} as ComponentMeta<typeof Settings>
 
-const Template = (props: SettingsProps) => <Settings {...props} />
+const Template: ComponentStory<typeof Settings> = (props) => <div className={styles.StoryContainer} ><Settings {...props} /></div>
 
 export const Default = Template.bind({});

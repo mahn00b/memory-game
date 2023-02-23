@@ -7,9 +7,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** Button color scheme. */
   theme?: 'menu' | 'primary' | 'secondary';
   /** Toggles the active state */
-  active?: boolean
+  active?: boolean;
   /** Adjusts the size of the button */
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'medium' | 'large';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   size = 'small',
   theme = 'menu',
+  className: customClassDefs = '',
   ...rest
 }: ButtonProps) => {
 
@@ -26,7 +27,8 @@ const Button: React.FC<ButtonProps> = ({
     styles[size],
     {
       [styles.active]: active
-    }
+    },
+    customClassDefs
   ])
 
 

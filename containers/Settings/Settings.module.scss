@@ -1,11 +1,14 @@
 @import '../../breakpoints.scss';
+@import '../../colors.scss';
 
 .Settings {
   width: 100%;
   max-width: 350px;
 
   padding: 24px;
-  border-radius: 4px;
+  border-radius: 20px;
+
+  background-color: $primary-white;
 
   @include largeScreens {
     max-width: 554px;
@@ -36,6 +39,11 @@
         }
       }
     }
+
+    .padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
   }
 
   .submit {
@@ -45,4 +53,18 @@
 
     margin-top: 2rem;
   }
+}
+
+.StoryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: $primary-black;
 }
