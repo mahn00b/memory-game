@@ -27,15 +27,15 @@ For a faster build out I'm going to leverage Storybook.js for isolated component
 
 ### Technologies
 
-| Technology      | usage                          |
-| --------------- | ------------------------------ |
-| React           | UI development                 |
-| Typescript      | static typing                  |
-| CSS Modules     | Scoped styles                  |
-| SASS            | CSS pre-processing             |
-| mobx-react-lite | state management               |
-| Storybook       | Isolated component development |
-| Figma           | Design specs and assets        |
+| Technology        | usage                          |
+| ----------------- | ------------------------------ |
+| React             | UI development                 |
+| Typescript        | static typing                  |
+| CSS Modules       | Scoped styles                  |
+| SASS              | CSS pre-processing             |
+| ~mobx-react-lite~ | ~state management~             |
+| Storybook         | Isolated component development |
+| Figma             | Design specs and assets        |
 
 ### Components
 

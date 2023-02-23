@@ -16,12 +16,10 @@ git # Project Status
   - [x] Capture typography in component
 
 ### Phase 3 - Game Logic
-  - [ ] Add support for mobx-react-lite ? (maybe not)
   - [x] Create game static types
-  - [ ] Create GameEngine component ? (maybe not)
 
 ### Phase 4 - Build Game UI
-  - [ ] Create Settings Screen
+  - [x] Create Settings Screen
   - [x] Create Game Board
 
 ### Phase 5 - Build Initial State
@@ -38,9 +36,12 @@ git # Project Status
   - [ ] Build CI/CD pipeline
   - [ ] Create path from my portfolio
 
-### Phase 8 - Polishing and funzies
+### Phase 8a - Polishing and funzies
   - [ ] Package into React component
   - [ ] Add sound effects
   - [ ] Add support for axe-core to assess accessibility issues
   - [ ] Assess screen-reader friendliness and make relevant accessibility improvements
   - [ ] E2E tests
+
+### Phase 8b - Optimizing
+- [ ] Experiment with state management libs
