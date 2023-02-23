@@ -1,0 +1,70 @@
+@import '../../breakpoints.scss';
+@import '../../colors.scss';
+
+.Settings {
+  width: 100%;
+  max-width: 350px;
+
+  padding: 24px;
+  border-radius: 20px;
+
+  background-color: $primary-white;
+
+  @include largeScreens {
+    max-width: 554px;
+  }
+
+  .row {
+    padding: 10px;
+
+    p {
+      color: #7191A5;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-evenly;
+
+      &> * {
+        margin: 0 .5rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+  }
+}
+
+.StoryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: $primary-black;
+}

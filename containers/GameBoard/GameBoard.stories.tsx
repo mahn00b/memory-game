@@ -8,7 +8,7 @@ export default {
       name: 'Grid Size',
       type: { name: 'number', required: true },
       defaultValue: 4,
-      description: 'Determines the size of the game board.',
+      description: 'Determines the dimensions of the game board.',
       table: {
         type: {
           summary: 'Grid size',

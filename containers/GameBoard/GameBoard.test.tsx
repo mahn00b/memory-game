@@ -1,9 +1,9 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
+import fireEvent from '@testing-library/user-event';
 import GameBoard, { GameBoardProps } from './GameBoard';
 import { SinglePlayerConfig } from '../../test/fixtures'
 
-
-describe('Gameboard', () => {
+describe('GameBoard', () => {
   let DEFAULT_PROPS: GameBoardProps;
 
   beforeEach(() => {
@@ -13,10 +13,15 @@ describe('Gameboard', () => {
       onAllMatched: jest.fn(),
       dataTestid: 'GAME_BOARD'
     }
+
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
     jest.clearAllMocks()
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
   })
 
   it('should be defined', () => {
@@ -47,8 +52,9 @@ describe('Gameboard', () => {
     const { getAllByRole } = render(<GameBoard {...props} onClickTile={mock} />)
 
     const tile = getAllByRole('button')[0];
-
-    fireEvent.click(tile);
+    act(() => {
+      fireEvent.click(tile);
+    })
 
     expect(mock).toHaveBeenCalledWith(Number(tile.innerHTML), false);
   });
@@ -64,8 +70,10 @@ describe('Gameboard', () => {
     const oneTile = getAllByText('1')[0];
     const twoTile = getAllByText('2')[0];
 
-    fireEvent.click(oneTile);
-    fireEvent.click(twoTile);
+    act(() => {
+      fireEvent.click(oneTile);
+      fireEvent.click(twoTile);
+    })
 
     expect(mock).toHaveBeenCalledTimes(2);
     expect(mock).toHaveBeenCalledWith(1, false);
@@ -100,15 +108,14 @@ describe('Gameboard', () => {
 
     for(let i = 1; i <= 8; i++) {
       const tiles = getAllByText(`${i}`)
-      console.log(i, tiles.length, tiles[0].innerHTML, tiles[1].innerHTML);
+        fireEvent.click(tiles[0]);
+        jest.runAllTimers()
+        rerender(<GameBoard {...props} onAllMatched={mock} />);
 
-      fireEvent.click(tiles[0]);
+        fireEvent.click(tiles[1]);
+        jest.runAllTimers()
+        rerender(<GameBoard {...props} onAllMatched={mock} />);
 
-      rerender(<GameBoard {...props} onAllMatched={mock} />);
-
-      fireEvent.click(tiles[1]);
-
-      rerender(<GameBoard {...props} onAllMatched={mock} />);
     }
 
     expect(mock).toHaveBeenCalled();
