@@ -4,6 +4,8 @@ import styles from './PlayerCard.module.scss';
 export interface PlayerCardProps {
   /** Toggles the state of the card */
   active?: boolean;
+  /** Highlight the card rather than simply activating */
+  highlight?: boolean;
   /** The accessibility description for this area. */
   ariaLabel: string;
   /** The information displayed on the right of the player card */
@@ -22,12 +24,13 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
   ariaLabel,
   info,
   label,
+  highlight,
   active,
   tabable,
   testId,
 }: PlayerCardProps) => (
   <div
-    className={cx(styles.PlayerCard, { [styles.active]: active })}
+    className={cx(styles.PlayerCard, { [styles.active]: active, [styles.highlight]: highlight })}
     aria-label={ariaLabel}
     tabIndex={tabable ? 0 : undefined}
     data-testid={testId}

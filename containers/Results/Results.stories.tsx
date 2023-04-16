@@ -1,6 +1,5 @@
-import type { ComponentStory, ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import Results from './Results';
-import styles from './Results.module.scss';
 import {
   SinglePlayerFinalGameState,
   MultiPlayerFinalGameState,
@@ -11,6 +10,8 @@ export default {
   title: 'Containers/Results',
   argTypes: {
     game: { table: { disable: true } },
+    onRestart: { table: { disable: true } },
+    onSetupNewGame: { table: { disable: true } },
     numberOfPlayers: {
       name: 'Number of Players',
       type: { name: 'number', required: true },
@@ -45,13 +46,17 @@ const Template: ComponentStory<typeof Results> = (props) => {
 
   if (numberOfPlayers === 1) {
     return (
-      <div className={styles.StoryContainer} ><Results game={SinglePlayerFinalGameState} numberOfPlayers={1} /></div>
+      <Results game={SinglePlayerFinalGameState} numberOfPlayers={1} />
     );
   } else {
     return (
-      <div className={styles.StoryContainer} ><Results game={MultiPlayerFinalGameState} numberOfPlayers={4} /></div>
+      <Results game={MultiPlayerFinalGameState} numberOfPlayers={4} />
     );
   }
 }
 
-export const Default = Template.bind({});
+export const SinglePlayer = Template.bind({});
+export const MultiPlayer = Template.bind({});
+MultiPlayer.args = {
+  numberOfPlayers: 4,
+};

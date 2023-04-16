@@ -3,7 +3,7 @@ export default {
     {
       id: 0,
       playerName: 'Player 1',
-      score: 5,
+      score: 6,
       numTurns: 10,
     },
     {
@@ -26,5 +26,6 @@ export default {
     },
   ],
   turn: 1,
-  totalTurnsTaken: 40
+  totalTurnsTaken: 40,
+  winners: [0, 2],
 } as GameState;

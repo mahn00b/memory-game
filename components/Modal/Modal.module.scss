@@ -20,12 +20,18 @@
   }
 
   .content {
+    min-width: 650px;
+
     border-radius: 20px;
     background-color: $off-white;
 
     padding: 55px;
 
     @include mobile {
+      width: calc(100% - 48px);
+      min-width: 0;
+      max-width: 327px;
+
       padding: 35px 25px;
     }
   }

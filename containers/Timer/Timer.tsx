@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { formatTime } from '../../utils';
 import PlayerCard from '../../components/PlayerCard';
 import useInterval from '../../hooks/useInterval';
 
@@ -11,15 +12,6 @@ export interface TimerProps {
    * @default false
    */
   pause?: boolean
-}
-
-const pad = (num: number) => `0${num}`.slice(-2);
-
-const formatTime = (timeInSeconds: number) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds - (60 * minutes);
-
-    return `${pad(minutes)}:${pad(seconds)}`;
 }
 
 const Timer = ({

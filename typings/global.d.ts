@@ -9,7 +9,7 @@ interface GameConfig {
 
 interface Player {
   /** Zero-based index player number (0-3). */
-  id: number;
+  id: 0 | 1 | 2 | 3;
   /** Player name if add by the user. */
   playerName?: string;
   /** The player's score. */
@@ -24,7 +24,9 @@ interface GameState {
   /** The elapsed seconds. */
   timer?: number
   /** The id of the player who's turn it is. */
-  turn: 0 | 1 | 2 | 3;
+  turn: Player['id'];
   /** The total number of turns played during this game. */
   totalTurnsTaken: number
+  /** The winner of the game. */
+  winners?: Player['id'][];
 }

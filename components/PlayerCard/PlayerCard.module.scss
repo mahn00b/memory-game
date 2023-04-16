@@ -58,6 +58,14 @@
     }
   }
 
+  &.highlight {
+    background: $primary-black;
+
+    & > * {
+      color: $primary-white;
+    }
+  }
+
   @include tablet {
     align-items: flex-start;
   }
