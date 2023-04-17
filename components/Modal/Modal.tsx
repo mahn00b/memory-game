@@ -3,11 +3,11 @@ import styles from './Modal.module.scss';
 
 export interface ModalProps {
   /** Toggles the appearance of the Modal. */
-  isOpen: boolean
+  isOpen: boolean;
   /** Contents of the Modal are rendered as children */
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** Used to target the Modal in testing environments. */
-  dataTestid?: string
+  dataTestid?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({

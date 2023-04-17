@@ -1,4 +1,5 @@
-import PlayerCard, { PlayerCardProps } from './PlayerCard';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import PlayerCard from './PlayerCard';
 
 export default {
   component: PlayerCard,
@@ -13,9 +14,9 @@ export default {
   argTypes: {
     ariaLabel: { table: { disable: true } }
   }
-}
+} as ComponentMeta<typeof PlayerCard>
 
-const Template = (args: PlayerCardProps) =>
+const Template: ComponentStory<typeof PlayerCard> = (args) =>
   <div style={{ maxWidth: '250px' } }><PlayerCard {...args} /></div>
 
 
@@ -25,4 +26,10 @@ export const Active = Template.bind({});
 
 Active.args = {
   active: true,
+}
+
+export const Highlighted = Template.bind({});
+
+Highlighted.args = {
+  highlight: true,
 }
