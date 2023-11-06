@@ -17,7 +17,7 @@ describe('Modal', () => {
   })
 
   it('should be open when isOpen is set to true.', () => {
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <Modal isOpen={true} dataTestid="TEST_ID">
         <div>test</div>
       </Modal>

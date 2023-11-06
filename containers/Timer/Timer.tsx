@@ -12,11 +12,14 @@ export interface TimerProps {
    * @default false
    */
   pause?: boolean
+  /** Triggers this callback every second. */
+  onTick?: (time: number) => void;
 }
 
 const Timer = ({
   startTime = 0,
-  pause = false
+  pause = false,
+  onTick = () => {}
 }: TimerProps) => {
   const [time, setTime] = useState(startTime);
 
@@ -24,6 +27,7 @@ const Timer = ({
     if (!pause)
       setTime(time + 1)
 
+    onTick(time);
   }, 1000)
 
   const formattedTime = formatTime(time);

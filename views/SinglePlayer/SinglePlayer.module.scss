@@ -1,0 +1,54 @@
+@import '../../breakpoints.scss';
+
+.SinglePlayer {
+  width: 100%;
+  height: 100%;
+
+  padding: 40px;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .menuWrapper {
+      display: flex;
+      align-items: center;
+
+      .large {
+        > * {
+          margin: 0 .5rem;
+        }
+      }
+
+      @include largeScreens {
+        .mobile {
+          display: none;
+        }
+      }
+
+      @include mobile {
+        .large {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scoreDisplay {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 50px;
+
+    > * {
+      margin: 0 1rem;
+    }
+  }
+}
